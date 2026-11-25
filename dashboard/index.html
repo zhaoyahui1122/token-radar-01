@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Token Radar — pre-token protocols ranked by implied value</title>
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<a class="skip" href="#board">Skip to the board</a>
+<header class="hero">
+  <p class="eyebrow">Token launch radar &middot; DefiLlama snapshot <span id="as-of">—</span></p>
+  <h1>Which pre-token protocol is worth farming next?</h1>
+  <p class="lede">Every protocol DefiLlama tracks that <strong>records no token</strong>, ranked by what
+  its launch would be worth if its record stayed as it is. The implied value is this
+  board&rsquo;s own claim, never a promise that a token comes, or when.</p>
+  <dl class="stats" id="stats"></dl>
+</header>
+
+<main id="board" tabindex="-1">
+  <section class="controls" aria-label="Board controls">
+    <label>Search <input id="q" type="search" placeholder="Name or slug&hellip;" autocomplete="off"></label>
+    <label>Category <select id="cat"><option value="">All categories</option></select></label>
+    <label>Chain <select id="chain"><option value="">All chains</option></select></label>
+    <label>Sort <select id="sort">
+      <option value="implied">Implied value</option>
+      <option value="tvl">TVL</option>
+      <option value="growth">7-day change</option>
+      <option value="age">Age (listed longest)</option>
+    </select></label>
+    <label class="check"><input id="watch" type="checkbox"> Watchlist only</label>
+    <p class="count" id="count"></p>
+  </section>
+
+  <section class="table-wrap">
+    <table id="board-table">
+      <thead><tr>
+        <th class="num">#</th><th>Protocol</th><th>Category</th><th>Chains</th>
+        <th class="num">TVL</th><th class="num">7d</th><th class="num">Age</th><th class="num">Implied value</th>
+      </tr></thead>
+      <tbody id="rows"></tbody>
+    </table>
+    <p class="hint">Click any row for its detail view and farm plan.</p>
+  </section>
+
+  <section class="detail" id="detail" hidden aria-label="Protocol detail"></section>
+
+  <section class="live" aria-label="Live token protocols">
+    <h2>Already trading — the market&rsquo;s own values</h2>
+    <p>Protocols that already have a token are not ranked here. Their market caps are
+    shown for comparison — and they are the peers the model&rsquo;s multiples come from.</p>
+    <table id="live-table">
+      <thead><tr>
+        <th>Protocol</th><th>Category</th><th class="num">TVL</th><th class="num">Market cap</th><th class="num">MCap / TVL</th>
+      </tr></thead>
+      <tbody id="live-rows"></tbody>
+    </table>
+  </section>
+
+  <section class="method" aria-label="How the board is scored">
+    <h2>How the board is scored</h2>
+    <div id="method-body"></div>
+    <h3>What this board does not say</h3>
+    <ul>
+      <li>A protocol on this board <strong>records no token</strong> in the snapshot. That is DefiLlama&rsquo;s record, not proof it has none — a token may exist that its record does not carry.</li>
+      <li>Implied value is not a prediction of whether or when a token is issued, or what it would trade at. It is the board&rsquo;s own reading of the protocol&rsquo;s record.</li>
+      <li>Farm plans are generic steps derived from each protocol&rsquo;s category, chains, size and age. They are not financial advice, and no step asks you to pay to claim anything.</li>
+    </ul>
+  </section>
+</main>
+
+<footer>
+  <p>Source: DefiLlama <span id="source">—</span> &middot; Model <span id="model-ver">—</span> &middot; Static page, no network requests.</p>
+</footer>
+<script src="../data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
